@@ -27,13 +27,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 
 public class MyXlet implements UserEventListener, Xlet {
-    private static String ELFLDR_URL  = "https://github.com/ps5-payload-dev/elfldr/releases/latest/download/Payload.zip";
-    private static String KLOGSRV_URL = "https://github.com/ps5-payload-dev/klogsrv/releases/latest/download/Payload.zip";
-    private static String FTPSRV_URL  = "https://github.com/ps5-payload-dev/ftpsrv/releases/latest/download/Payload.zip";
-    private static String WEBSRV_URL  = "https://github.com/ps5-payload-dev/websrv/releases/latest/download/Payload.zip";
-    private static String SHSRV_URL   = "https://github.com/ps5-payload-dev/shsrv/releases/latest/download/Payload.zip";
-    private static String GDBSRV_URL  = "https://github.com/ps5-payload-dev/gdbsrv/releases/latest/download/Payload.zip";
-    private static String ḰSTUFF_URL  = "https://github.com/ps5-payload-dev/kstuff/releases/latest/download/Payload.zip";
+    private static String ETAHEN_URL  = "https://github.com/etaHEN/etaHEN/releases/latest/download/Payload.zip";
 
     private HScene scene;
     private LoggingUI logUI;
@@ -167,21 +161,11 @@ public class MyXlet implements UserEventListener, Xlet {
 	    LoggingUI.getInstance().log(t);
 	}
 
-	listUI.addItem("Payloads from https://github.com/ps5-payload-dev");
-	addPayload("klogsrv.elf - A kernel logging server running on port 3232", KLOGSRV_URL);
-	addPayload("ftpsrv.elf  - An FTP server running on port 2121", FTPSRV_URL);
-	addPayload("websrv.elf  - A web server running on port 8080", WEBSRV_URL);
-	addPayload("shsrv.elf   - A Telnet server running on port 2323", SHSRV_URL);
-	addPayload("kstuff.elf  - A fake package enabler", ḰSTUFF_URL);
-	addPayload("gdbsrv.elf  - A GDB server running on port 2159", GDBSRV_URL);
+	listUI.addItem("Payloads from https://github.com/etaHEN");
+	addPayload("etaHEN 2.0B Pre-Release - AIO HEN payload", ETAHEN_URL);
 
 	listUI.addItem("Payloads from disc");
-	addPayload("klogsrv.elf - A kernel logging server running on port 3232", "/disc/klogsrv.elf");
-	addPayload("ftpsrv.elf  - An FTP server running on port 2121", "/disc/ftpsrv.elf");
-	addPayload("websrv.elf  - A web server running on port 8080", "/disc/websrv.elf");
-	addPayload("shsrv.elf   - A Telnet server running on port 2323", "/disc/shsrv.elf");
-	addPayload("kstuff.elf  - A fake package enabler", "/disc/kstuff.elf");
-	addPayload("gdbsrv.elf  - A GDB server running on port 2159", "/disc/gdbsrv.elf");
+	addPayload("etaHEN 2.0B Pre-Release - AIO HEN payload", "/disc/etaHEN.elf");
 
 	logUI.setVisible(false);
     }
