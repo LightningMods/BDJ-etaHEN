@@ -42,7 +42,7 @@ SOURCES   := $(wildcard src/org/homebrew/*.java)
 JFLAGS    := -Xlint:-options
 
 ELFLDR_URL  := https://github.com/ps5-payload-dev/elfldr/releases/latest/download/Payload.zip
-ETAHEN_URL := https://github.com/etaHEN/etaHEN/releases/download/2.0b-pre/etaHEN.bin
+ETAHEN_URL :=  https://github.com/etaHEN/etaHEN/releases/download/2.0b-pre/etaHEN.bin
 
 #
 # Disc files
@@ -64,8 +64,8 @@ discdir/elfldr.elf:
 	wget -qO- $(ELFLDR_URL) | gunzip -c - > $@
 
 discdir/etaHEN.elf:
-        wget -qO $(ETAHEN_URL)
-
+	mkdir -p discdir
+	wget -qO discdir/etaHEN.elf $(ETAHEN_URL)
 
 discdir/BDMV/JAR/00000.jar: discdir $(SOURCES)
 	$(JAVAC) $(JFLAGS) -cp $(CLASSPATH) $(SOURCES)
