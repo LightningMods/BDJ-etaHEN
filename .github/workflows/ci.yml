@@ -1,4 +1,4 @@
-name: CI
+name: Build ISO
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.ref }}-${{ github.event_name  }}
+  group: ${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
@@ -26,7 +26,8 @@ jobs:
     - name: Setup
       run: |
         sudo apt update
-        sudo apt-get install build-essential libbsd-dev git pkg-config openjdk-8-jdk-headless openjdk-11-jdk-headless
+        sudo apt-get install build-essential libbsd-dev git pkg-config \
+          openjdk-8-jdk-headless openjdk-11-jdk-headless
         git clone --recurse-submodules https://github.com/john-tornblom/bdj-sdk
         ln -s /usr/lib/jvm/java-8-openjdk-amd64 bdj-sdk/host/jdk8
         ln -s /usr/lib/jvm/java-11-openjdk-amd64 bdj-sdk/host/jdk11
@@ -38,7 +39,7 @@ jobs:
       run: make BDJSDK_HOME=bdj-sdk
 
     - name: Upload
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.1.0
       with:
         name: etaHEN-BDJ-ISO
         path: etaHEN-BDJ.iso
