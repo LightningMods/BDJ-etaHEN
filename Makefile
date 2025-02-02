@@ -53,9 +53,7 @@ TMPL_FILES := $(shell find $(BDJSDK_HOME)/resources/AVCHD/ -type f)
 DISC_DIRS  := $(patsubst $(BDJSDK_HOME)/resources/AVCHD%,discdir%,$(TMPL_DIRS)) \
               discdir/BDMV/JAR
 DISC_FILES := $(patsubst $(BDJSDK_HOME)/resources/AVCHD%,discdir%,$(TMPL_FILES)) \
-              discdir/BDMV/JAR/00000.jar discdir/elfldr.elf discdir/klogsrv.elf \
-	      discdir/ftpsrv.elf discdir/websrv.elf discdir/shsrv.elf \
-	      discdir/kstuff.elf discdir/gdbsrv.elf
+              discdir/BDMV/JAR/00000.jar discdir/elfldr.elf discdir/etaHEN.elf
 
 all: $(DISC_LABEL).iso
 
