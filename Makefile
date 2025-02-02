@@ -15,7 +15,7 @@
 # <http://www.gnu.org/licenses/>.
 
 
-DISC_LABEL := bdj-ipv6-hen
+DISC_LABEL := etaHEN-BDJ
 
 ifndef BDJSDK_HOME
     $(error BDJSDK_HOME is undefined)
@@ -42,12 +42,7 @@ SOURCES   := $(wildcard src/org/homebrew/*.java)
 JFLAGS    := -Xlint:-options
 
 ELFLDR_URL  := https://github.com/ps5-payload-dev/elfldr/releases/latest/download/Payload.zip
-KLOGSRV_URL := https://github.com/ps5-payload-dev/klogsrv/releases/latest/download/Payload.zip
-FTPSRV_URL  := https://github.com/ps5-payload-dev/ftpsrv/releases/latest/download/Payload.zip
-WEBSRV_URL  := https://github.com/ps5-payload-dev/websrv/releases/latest/download/Payload.zip
-SHSRV_URL   := https://github.com/ps5-payload-dev/shsrv/releases/latest/download/Payload.zip
-KSTUFF_URL  := https://github.com/ps5-payload-dev/kstuff/releases/latest/download/Payload.zip
-GDBSRV_URL  := https://github.com/ps5-payload-dev/gdbsrv/releases/latest/download/Payload.zip
+ETAHEN_URL := https://github.com/etaHEN/etaHEN/releases/download/2.0b-pre/etaHEN.bin
 
 #
 # Disc files
@@ -70,23 +65,9 @@ discdir:
 discdir/elfldr.elf:
 	wget -qO- $(ELFLDR_URL) | gunzip -c - > $@
 
-discdir/klogsrv.elf:
-	wget -qO- $(KLOGSRV_URL) | gunzip -c - > $@
+discdir/etaHEN.elf:
+	wget -qO- $(ETAHEN_URL)
 
-discdir/ftpsrv.elf:
-	wget -qO- $(FTPSRV_URL) | gunzip -c - > $@
-
-discdir/websrv.elf:
-	wget -qO- $(WEBSRV_URL) | gunzip -c - > $@
-
-discdir/shsrv.elf:
-	wget -qO- $(SHSRV_URL) | gunzip -c - > $@
-
-discdir/kstuff.elf:
-	wget -qO- $(KSTUFF_URL) | gunzip -c - > $@
-
-discdir/gdbsrv.elf:
-	wget -qO- $(GDBSRV_URL) | gunzip -c - > $@
 
 discdir/BDMV/JAR/00000.jar: discdir $(SOURCES)
 	$(JAVAC) $(JFLAGS) -cp $(CLASSPATH) $(SOURCES)
@@ -97,7 +78,7 @@ discdir/%: discdir
 	cp $(BDJSDK_HOME)/resources/AVCHD/$* $@
 
 $(DISC_LABEL).iso: $(DISC_FILES)
-	$(MAKEFS) -m 32m -t udf -o T=bdre,v=2.50,L=$(DISC_LABEL) $@ discdir
+	$(MAKEFS) -m 64m -t udf -o T=bdre,v=2.50,L=$(DISC_LABEL) $@ discdir
 
 clean:
 	rm -rf META-INF $(DISC_LABEL).iso discdir src/org/homebrew/*.class
