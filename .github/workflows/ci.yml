@@ -39,7 +39,7 @@ jobs:
       run: make BDJSDK_HOME=bdj-sdk
 
     - name: Upload
-      uses: actions/upload-artifact@v3.1.0
+      uses: actions/upload-artifact@main
       with:
         name: etaHEN-BDJ-ISO
         path: etaHEN-BDJ.iso
