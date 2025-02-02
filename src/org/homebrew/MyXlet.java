@@ -27,7 +27,9 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 
 public class MyXlet implements UserEventListener, Xlet {
+    private static String ELFLDR_URL  = "https://github.com/ps5-payload-dev/elfldr/releases/latest/download/Payload.zip";
     private static String ETAHEN_URL  = "https://github.com/etaHEN/etaHEN/releases/latest/download/Payload.zip";
+
 
     private HScene scene;
     private LoggingUI logUI;
