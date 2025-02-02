@@ -148,14 +148,14 @@ public class MyXlet implements UserEventListener, Xlet {
 		KernelPatching.setTargetId((byte)0x82);
 		LoggingUI.getInstance().log("[+] Debug/dev mode enabled");
 
-		try {
-		    LoggingUI.getInstance().log("[*] Loading " + ELFLDR_URL);
-		    ElfLoading.runElf(fetchPayload(ELFLDR_URL));
-		} catch (Exception ex) {
-		    LoggingUI.getInstance().log(ex);
+		//try {
+		//    LoggingUI.getInstance().log("[*] Loading " + ELFLDR_URL);
+		//    ElfLoading.runElf(fetchPayload(ELFLDR_URL));
+		//} catch (Exception ex) {
+		//    LoggingUI.getInstance().log(ex);
 		    LoggingUI.getInstance().log("[*] Loading /disc/elfldr.elf");
 		    ElfLoading.runElf(fetchPayload("/disc/elfldr.elf"));
-		}
+		//}
 	    }
 
 	    EventManager.getInstance().addUserEventListener(this, evtRepo);
