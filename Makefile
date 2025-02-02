@@ -64,7 +64,7 @@ discdir/elfldr.elf:
 	wget -qO- $(ELFLDR_URL) | gunzip -c - > $@
 
 discdir/etaHEN.elf:
-	wget -qO- $(ETAHEN_URL) > etaHEN.elf
+        wget -qO discdir/etaHEN.elf $(ETAHEN_URL)
 
 
 discdir/BDMV/JAR/00000.jar: discdir $(SOURCES)
