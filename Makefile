@@ -15,7 +15,7 @@
 # <http://www.gnu.org/licenses/>.
 
 
-DISC_LABEL := etaHEN-IPV6-BD-J
+DISC_LABEL := etaHEN-BDJ-IPV6
 
 ifndef BDJSDK_HOME
     $(error BDJSDK_HOME is undefined)
