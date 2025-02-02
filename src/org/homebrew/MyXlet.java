@@ -164,7 +164,7 @@ public class MyXlet implements UserEventListener, Xlet {
 	}
 
 	listUI.addItem("Payloads from https://github.com/etaHEN");
-	addPayload("etaHEN 2.0B Pre-Release - AIO HEN payload", ETAHEN_URL);
+	addPayload("etaHEN (Latest GitHub Build) - AIO HEN payload", ETAHEN_URL);
 
 	listUI.addItem("Payloads from disc");
 	addPayload("etaHEN 2.0B Pre-Release - AIO HEN payload", "/disc/etaHEN.elf");
