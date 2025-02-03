@@ -41,7 +41,6 @@ CLASSPATH := $(BDJSDK_HOME)/target/lib/enhanced-stubs.zip:$(BDJSDK_HOME)/target/
 SOURCES   := $(wildcard src/org/homebrew/*.java)
 JFLAGS    := -Xlint:-options
 
-ELFLDR_URL  := https://github.com/ps5-payload-dev/elfldr/releases/latest/download/Payload.zip
 ETAHEN_URL :=  https://github.com/etaHEN/etaHEN/releases/download/2.0b-pre/etaHEN.bin
 
 #
@@ -53,15 +52,12 @@ TMPL_FILES := $(shell find $(BDJSDK_HOME)/resources/AVCHD/ -type f)
 DISC_DIRS  := $(patsubst $(BDJSDK_HOME)/resources/AVCHD%,discdir%,$(TMPL_DIRS)) \
               discdir/BDMV/JAR
 DISC_FILES := $(patsubst $(BDJSDK_HOME)/resources/AVCHD%,discdir%,$(TMPL_FILES)) \
-              discdir/BDMV/JAR/00000.jar discdir/elfldr.elf discdir/etaHEN.elf
+              discdir/BDMV/JAR/00000.jar discdir/etaHEN.elf
 
 all: $(DISC_LABEL).iso
 
 discdir:
 	mkdir -p $(DISC_DIRS)
-
-discdir/elfldr.elf:
-	wget -qO- $(ELFLDR_URL) | gunzip -c - > $@
 
 discdir/etaHEN.elf:
 	mkdir -p discdir
