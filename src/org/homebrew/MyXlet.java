@@ -80,8 +80,7 @@ public class MyXlet implements UserEventListener, Xlet {
 		       new Runnable() {
 			   public void run() {
 			       try {
-				   byte[] bytes = fetchPayload(uri);
-				   ElfLoading.runElf("localhost", 9021, bytes);
+				  ElfLoading.runElf(fetchPayload(uri));
 			       } catch (Throwable t) {
 				   libkernel.sendNotificationRequest(t.getMessage());
 				   LoggingUI.getInstance().log(t);
@@ -153,8 +152,8 @@ public class MyXlet implements UserEventListener, Xlet {
 		//    ElfLoading.runElf(fetchPayload(ELFLDR_URL));
 		//} catch (Exception ex) {
 		//    LoggingUI.getInstance().log(ex);
-		    LoggingUI.getInstance().log("[*] Loading /disc/elfldr.elf");
-		    ElfLoading.runElf(fetchPayload("/disc/elfldr.elf"));
+		   // LoggingUI.getInstance().log("[*] Loading /disc/elfldr.elf");
+		   // ElfLoading.runElf(fetchPayload("/disc/elfldr.elf"));
 		//}
 	    }
 
