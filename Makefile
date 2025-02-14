@@ -41,7 +41,7 @@ CLASSPATH := $(BDJSDK_HOME)/target/lib/enhanced-stubs.zip:$(BDJSDK_HOME)/target/
 SOURCES   := $(wildcard src/org/homebrew/*.java)
 JFLAGS    := -Xlint:-options
 
-ETAHEN_URL :=  https://github.com/etaHEN/etaHEN/releases/download/2.0b-pre/etaHEN.bin
+ETAHEN_URL :=  https://github.com/LightningMods/IPV6-BDJ-etaHEN/blob/dev/etaHEN.elf
 
 #
 # Disc files
